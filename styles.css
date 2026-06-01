@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg: #071024;
+  --card: #0b1524;
+  --muted: #98a0b3;
+  --accent: #7dd3fc;
+  --accent-2: #a78bfa;
+  --glass: rgba(255,255,255,0.03);
+}
+
+html, body, .stApp, .main {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent 10%),
+              radial-gradient(900px 400px at 90% 90%, rgba(125,211,252,0.06), transparent 12%),
+              var(--bg) !important;
+  color: #e6eef8;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.block-container{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border-radius: 14px;
+  padding: 28px 32px !important;
+  box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+}
+
+/* Headers */
+h1, h2, h3, h4, .stMarkdown h1, .stMarkdown h2 {
+  color: #f8fbff;
+}
+
+.stImage img{
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,0.16);
+  box-shadow:0 18px 35px rgba(15,23,42,0.75);
+}
+
+.profile-caption {
+  text-align:center;
+  color:#a0b8d9;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+/* Cards / Info boxes */
+.stInfo, .stSuccess, .stWarning, .stError {
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Buttons */
+button, .stButton button {
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  color: #02111a;
+  font-weight: 600;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(125,58,237,0.12);
+}
+
+/* Metrics */
+.stMetric{background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:10px}
+
+/* Expander */
+.stExpander{
+  background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* Download button tweak */
+a[role='button']{
+  background: linear-gradient(90deg, var(--accent-2), var(--accent)) !important;
+  color: #02111a !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+}
+
+/* Progress bars color */
+div[role='progressbar'] > div{
+  background: linear-gradient(90deg, var(--accent-2), var(--accent)) !important;
+}
+
+/* Social links */
+.social-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.social-links a{
+  display:inline-flex;
+  align-items:center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(125,211,252,0.12);
+  color: #d7ebff;
+  text-decoration:none;
+  font-weight:600;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-links a:hover{
+  transform: translateY(-2px);
+  background: rgba(125,211,252,0.2);
+}
+
+/* Small screens */
+@media (max-width: 680px){
+  .block-container{padding:20px}
+  .stImage img{width:140px}
+  .social-links{justify-content:center}
+}
