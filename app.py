@@ -8,37 +8,29 @@ st.set_page_config(
     layout="wide"
 )
 
-# Path helpers
+# Path helper
 BASE_DIR = pathlib.Path(__file__).resolve().parent
-ASSETS_DIR = BASE_DIR / "assets"
 
-# Load custom CSS if available
-def load_local_css(path: pathlib.Path):
+# Load CSS from root folder
+def load_local_css(path):
     try:
+        path = pathlib.Path(path)
         if path.exists():
-            css = path.read_text(encoding='utf-8')
+            css = path.read_text(encoding="utf-8")
             st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
     except Exception:
         pass
 
-load_local_css(ASSETS_DIR / "styles.css")
+load_local_css(BASE_DIR / "styles.css")
 
 # ---------------- HERO SECTION ----------------
 col1, col2 = st.columns([1, 3])
 
 with col1:
-    profile_path = ASSETS_DIR / "Profile.jpeg"
-    if not profile_path.exists():
-        profile_path = ASSETS_DIR / "profile.jpg"
-    if profile_path.exists():
-        st.image(str(profile_path), width=220)
-        st.markdown(
-            "<p class='profile-caption'>Profile photo • Electronics & Communication Engineering</p>",
-            unsafe_allow_html=True,
-        )
-    else:
-        st.error("Profile image not found in assets folder.")
-
+    try:
+        st.image("Profile.jpeg", width=220)
+    except Exception:
+        st.warning("Profile image not found.")
 with col2:
     st.title("Prasath A")
     st.markdown("### Electronics & Communication Engineering Student")
