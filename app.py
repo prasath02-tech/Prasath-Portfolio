@@ -239,10 +239,13 @@ st.write("📍 Tamil Nadu, India")
 st.markdown("---")
 st.header("📄 Resume")
 
-with open("assets/resume.pdf", "rb") as pdf_file:
-    st.download_button(
-        label="Download Resume",
-        data=pdf_file,
-        file_name="Prasath_A_Resume.pdf",
-        mime="application/pdf"
-    )
+try:
+    with open("Prasath A_resume.pdf", "rb") as pdf_file:
+        st.download_button(
+            label="📄 Download Resume",
+            data=pdf_file,
+            file_name="Prasath_A_Resume.pdf",
+            mime="application/pdf"
+        )
+except FileNotFoundError:
+    st.error("Resume file not found.")
